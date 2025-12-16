@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário - [Nome do Seu Site]</title>
+   <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header.css">
+     <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+     <header class="main-header">
+        <div class="container header-content">
+            <a href="#" class="logo">TechMaker</a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Página Principal</a></li>
+                    <li><a href="#produtos">Ofertas</a></li>
+                    <li class="dropdown-menu">
+                        <a href="#categorias">Produtos <i class="fas fa-caret-down"></i></a>
+                        <ul class="dropdown-content">
+                            <li><a href="#impressao-3d">Impressão 3D</a></li>
+                            <li><a href="#arduino">Kits Arduino</a></li>
+                            <li><a href="#laser">Corte a Laser</a></li>
+                            <li><a href="#mais-vendidos">Mais Vendidos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="sobre.html">Sobre Nós</a></li> 
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <input type="search" placeholder="Buscar produtos...">
+                <a href="registro.html" class="action-icon" title="Cadastre-se ou Faça Login"><i class="fas fa-user"></i></a>
+                
+                <a href="#" class="action-icon cart-icon" onclick="openCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="register-section">
+        <div class="container">
+            <div class="register-box">
+                <h2><i class="fas fa-user-plus"></i> Crie Sua Conta</h2>
+                <p class="subtitle">Cadastre-se para ter acesso completo aos nossos produtos e serviços.</p>
+                
+                <form action="#" method="POST" class="register-form">
+                    
+                    <div class="input-group">
+                        <label for="name"><i class="fas fa-id-card"></i> Nome Completo</label>
+                        <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email"><i class="fas fa-envelope"></i> E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="email@exemplo.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password"><i class="fas fa-lock"></i> Senha</label>
+                        <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" minlength="8" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirm-password"><i class="fas fa-lock"></i> Confirmar Senha</label>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Repita a senha" minlength="8" required>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">Eu concordo com os <a href="#" class="form-link">Termos de Serviço</a> e <a href="#" class="form-link">Política de Privacidade</a>.</label>
+                    </div>
+
+                    <button type="submit" class="cta-button register-submit-btn">
+                        <i class="fas fa-check"></i> Finalizar Cadastro
+                    </button>
+                    
+                    <div class="login-link-box">
+                        Já tem uma conta? <a href="#" class="form-link">Faça Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+ <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>Sobre a TechMaker</h3>
+                <p>Líder em tecnologia de fabricação digital, oferecendo o melhor em Impressão 3D, Laser e Eletrônica para sua criatividade.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Atendimento</h3>
+                <ul>
+                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">Política de Troca</a></li>
+                    <li><a href="#">Minha Conta</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Produtos</h3>
+                <ul>
+                    <li><a href="#">Impressoras</a></li>
+                    <li><a href="#">Filamentos</a></li>
+                    <li><a href="#">Kits Eletrônicos</a></li>
+                    <li><a href="#">Peças e Componentes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                &copy; 2025 TechMaker. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

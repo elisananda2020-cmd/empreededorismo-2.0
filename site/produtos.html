@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMaker - Nossos Produtos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="vitrine.css"> 
+    <link rel="stylesheet" href="header.css"> 
+    <link rel="stylesheet" href="footer.css"> 
+</head>
+<body class="product-page">
+
+    <aside id="offCanvasCart" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <button class="close-btn" onclick="closeCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItemsList">
+            <p class="empty-cart-message">Seu carrinho está vazio.</p>
+        </div>
+        <div class="cart-summary">
+            <div class="subtotal">
+                <span>Subtotal:</span>
+                <span id="cartSubtotal">R$ 0,00</span>
+            </div>
+            <button class="checkout-button">Finalizar Compra</button>
+        </div>
+    </aside>
+    
+    <div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">TechMaker</a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Página Principal</a></li>
+                    <li class="dropdown-menu">
+                        <a href="produtos.html" class="active">Produtos <i class="fas fa-caret-down"></i></a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Impressão 3D</a></li>
+                            <li><a href="#">Kits Arduino</a></li>
+                            <li><a href="#">Corte a Laser</a></li>
+                            <li><a href="#">Mais Vendidos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="sobre.html">Sobre Nós</a></li> 
+                    <li><a href="index.html#diferenciais">Diferenciais</a></li>
+                    <li><a href="index.html#maker">Blog</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <input type="search" placeholder="Buscar produtos...">
+                <a href="registro.html" class="action-icon" title="Cadastre-se ou Faça Login"><i class="fas fa-user"></i></a>
+                
+                <a href="#" class="action-icon cart-icon" onclick="openCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="products-hero reveal-item">
+            <div class="container">
+                <div class="hero-content-light">
+                    <h2>Nossos Produtos</h2>
+                    <p class="subtitle">Encontre o equipamento perfeito para seus projetos</p>
+                    <div class="search-bar-product-page">
+                        <input type="search" placeholder="Buscar produtos...">
+                        <button class="search-button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-listing-section">
+            <div class="container product-grid-layout">
+                
+                <aside class="filters-sidebar reveal-item">
+                    <h3>Filtros</h3>
+                    
+                    <div class="filter-group">
+                        <h4>Categorias</h4>
+                        <ul>
+                            <li><label><input type="checkbox" checked> Impressoras 3D</label></li>
+                            <li><label><input type="checkbox"> Cortadoras Laser</label></li>
+                            <li><label><input type="checkbox"> Arduino & Eletrônica</label></li>
+                            <li><label><input type="checkbox"> Filamentos</label></li>
+                            <li><label><input type="checkbox"> Acessórios</label></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Faixa de Preço</h4>
+                        <div class="price-range">
+                            <input type="range" min="0" max="50000" value="50000" id="priceRange">
+                            <div class="price-values">
+                                <span class="min-price">R$ 0</span>
+                                <span class="max-price">R$ 50.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="checkbox-group"><input type="checkbox"> Apenas em estoque</label>
+                    </div>
+
+                    <button class="clear-filters-btn">Limpar Filtros</button>
+                </aside>
+                
+                <div class="product-list-container">
+                    <div class="product-count">12 produtos encontrados</div> 
+                    
+                    <div class="product-grid-view">
+                        
+                        <div class="product-card-v2 reveal-item">
+                            <div class="badge-tag destaque">Destaque</div>
+                            <div class="badge-tag discount">-19%</div>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsB_OLW8tlcAa9M9obHA7UgPbzDxc-A4puFw&s" alt="Ender 3 V3 SE">
+                            
+                            <div class="card-content-v2">
+                                <span class="category-chip">Impressora 3D</span>
+                                <h3>Ender 3 V3 SE - Impressora 3D FDM</h3>
+                                <p>Impressora 3D com nivelamento automático...</p>
+                                
+                                <div class="price-actions">
+                                    <div class="price-info">
+                                        <span class="old-price-v2">R$ 1.599,00</span>
+                                        <span class="current-price-v2">R$ 1.299,00</span>
+                                        <span class="installment">em até 12x</span>
+                                    </div>
+                                    <button class="add-to-cart-btn-v2" onclick="addToCart('Ender 3 V3 SE', 1299.00)">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card-v2 reveal-item">
+                            <div class="badge-tag destaque">Destaque</div>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8c8GrsI96SDG5KYRBPYOtC2OdqTS2WwyEkQ&s" alt="Elegoo Mars 4 Ultra">
+                            
+                            <div class="card-content-v2">
+                                <span class="category-chip">Impressora 3D</span>
+                                <h3>Elegoo Mars 4 Ultra - Impressora 3D Resina</h3>
+                                <p>Impressora de resina com tela LCD 9K para detalhes...</p>
+                                
+                                <div class="price-actions">
+                                    <div class="price-info">
+                                        <span class="current-price-v2">R$ 2.499,00</span>
+                                        <span class="installment">em até 12x</span>
+                                    </div>
+                                    <button class="add-to-cart-btn-v2" onclick="addToCart('Elegoo Mars 4 Ultra', 2499.00)">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card-v2 reveal-item">
+                            <div class="badge-tag destaque">Destaque</div>
+                            <div class="badge-tag discount">-9%</div>
+                            <img src="https://promo.idealdistribuidora.com/wp-content/webp-express/webp-images/uploads/2022/06/mandala-mdf.png.webp" alt="Cortadora Laser ATOMSTACK">
+                            
+                            <div class="card-content-v2">
+                                <span class="category-chip">Cortadora Laser</span>
+                                <h3>Cortadora Laser ATOMSTACK A5 PRO...</h3>
+                                <p>Cortadora e gravadora laser 40W com grande ár...</p>
+                                
+                                <div class="price-actions">
+                                    <div class="price-info">
+                                        <span class="old-price-v2">R$ 4.290,00</span>
+                                        <span class="current-price-v2">R$ 3.899,00</span>
+                                        <span class="installment">em até 12x</span>
+                                    </div>
+                                    <button class="add-to-cart-btn-v2" onclick="addToCart('ATOMSTACK A5 PRO', 3899.00)">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card-v2 reveal-item">
+                            <div class="badge-tag destaque">Destaque</div>
+                            <div class="badge-tag discount">-13%</div>
+                            <img src="https://i.all3dp.com/wp-content/uploads/2020/08/20160418/Arduino-Robokitten.jpeg" alt="Arduino Mega 2560 R3">
+                            
+                            <div class="card-content-v2">
+                                <span class="category-chip">Arduino</span>
+                                <h3>Arduino Mega 2560 R3 - Kit Completo</h3>
+                                <p>Kit Arduino Mega com mais de 200 componente...</p>
+                                
+                                <div class="price-actions">
+                                    <div class="price-info">
+                                        <span class="old-price-v2">R$ 449,00</span>
+                                        <span class="current-price-v2">R$ 389,00</span>
+                                        <span class="installment">em até 12x</span>
+                                    </div>
+                                    <button class="add-to-cart-btn-v2" onclick="addToCart('Arduino Mega Kit', 389.00)">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card-v2 reveal-item">
+                            <div class="badge-tag destaque">Novo</div>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8c8GrsI96SDG5KYRBPYOtC2OdqTS2WwyEkQ&s" alt="Filamento PLA">
+                            <div class="card-content-v2">
+                                <span class="category-chip">Filamentos</span>
+                                <h3>Filamento PLA Premium 1kg - Preto</h3>
+                                <p>Material de alta qualidade para impressoras FDM.</p>
+                                <div class="price-actions">
+                                    <div class="price-info">
+                                        <span class="current-price-v2">R$ 119,90</span>
+                                        <span class="installment">em até 3x</span>
+                                    </div>
+                                    <button class="add-to-cart-btn-v2" onclick="addToCart('Filamento PLA Preto', 119.90)">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card-v2 reveal-item">
+                            <div class="badge-tag discount">-25%</div>
+                            <img src="https://i.all3dp.com/wp-content/uploads/2023/01/17134314/spooky-tksgeo-via-printables-230103_download-e1673959997743.jpg" alt="Kit de Sensores">
+                            <div class="card-content-v2">
+                                <span class="category-chip">Arduino & Eletrônica</span>
+                                <h3>Kit 37 Sensores para Arduino</h3>
+                                <p>Comece seus projetos de IoT e robótica.</p>
+                                <div class="price-actions">
+                                    <div class="price-info">
+                                        <span class="old-price-v2">R$ 199,00</span>
+                                        <span class="current-price-v2">R$ 149,00</span>
+                                        <span class="installment">em até 6x</span>
+                                    </div>
+                                    <button class="add-to-cart-btn-v2" onclick="addToCart('Kit 37 Sensores', 149.00)">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card-v2 reveal-item">
+                            <div class="badge-tag destaque">Novo</div>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyK0jVG61KQiWznLvF29IOWaKanYYy5eMQGA&s" alt="Anycubic Kobra 2 Neo">
+                            <div class="card-content-v2">
+                                <span class="category-chip">Impressora 3D</span>
+                                <h3>Anycubic Kobra 2 Neo - Fast Print</h3>
+                                <p>Impressora de alta velocidade para iniciantes.</p>
+                                <div class="price-actions">
+                                    <div class="price-info">
+                                        <span class="current-price-v2">R$ 1.699,00</span>
+                                        <span class="installment">em até 10x</span>
+                                    </div>
+                                    <button class="add-to-cart-btn-v2" onclick="addToCart('Anycubic Kobra 2 Neo', 1699.00)">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card-v2 reveal-item">
+                            <div class="badge-tag discount">-10%</div>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5dzWIRSgHb6MrP9uetqnEjz-zgcJqe9qAaQ&s" alt="Phrozen Sonic Mega 8K">
+                            <div class="card-content-v2">
+                                <span class="category-chip">Impressora 3D</span>
+                                <h3>Phrozen Sonic Mega 8K (Volume Grande)</h3>
+                                <p>Impressora de resina com volume massivo.</p>
+                                <div class="price-actions">
+                                    <div class="price-info">
+                                        <span class="old-price-v2">R$ 7.999,00</span>
+                                        <span class="current-price-v2">R$ 7.199,00</span>
+                                        <span class="installment">em até 12x</span>
+                                    </div>
+                                    <button class="add-to-cart-btn-v2" onclick="addToCart('Phrozen Sonic Mega 8K', 7199.00)">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card-v2 reveal-item">
+                            <div class="badge-tag destaque">Oferta</div>
+                            <img src="https://i.all3dp.com/workers/images/fit=scale-down,w=1200,gravity=0.5x0.5,format=auto/wp-content/uploads/2024/08/06113540/Bag-Coat-Hanger.jpg" alt="Kit 4 Ganchos de Bolsa">
+                            <div class="card-content-v2">
+                                <span class="category-chip">Acessórios</span>
+                                <h3>Kit 4 Ganchos de Bolsa/Mochila (Modelo 3D)</h3>
+                                <p>Acessórios utilitários e ergonômicos para impressão.</p>
+                                <div class="price-actions">
+                                    <div class="price-info">
+                                        <span class="current-price-v2">R$ 39,90</span>
+                                        <span class="installment">em até 2x</span>
+                                    </div>
+                                    <button class="add-to-cart-btn-v2" onclick="addToCart('Kit Ganchos Bolsa', 39.90)">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card-v2 reveal-item">
+                            <div class="badge-tag destaque">Digital</div>
+                            <img src="https://wishbox.net.br/wp-content/uploads/2019/12/10-projetos-legais-e-uteis-para-imprimir-em-3d.jpg" alt="Pack de Modelos 3D">
+                            <div class="card-content-v2">
+                                <span class="category-chip">Kits e Projetos</span>
+                                <h3>Pack 10 Projetos 3D Essenciais (STL)</h3>
+                                <p>Arquivos digitais para impressão de objetos úteis.</p>
+                                <div class="price-actions">
+                                    <div class="price-info">
+                                        <span class="current-price-v2">R$ 49,90</span>
+                                        <span class="installment">Pagamento Único</span>
+                                    </div>
+                                    <button class="add-to-cart-btn-v2" onclick="addToCart('Pack Projetos 3D', 49.90)">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card-v2 reveal-item">
+                            <div class="badge-tag discount">-20%</div>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR8Li1GexqMkd5BYTaqk0rgYI8fmm06g3fRg&s" alt="Placa de Controle Impressora">
+                            <div class="card-content-v2">
+                                <span class="category-chip">Peças e Componentes</span>
+                                <h3>Placa-Mãe SKR Mini E3 V3.0 (32 Bits)</h3>
+                                <p>Upgrade silencioso e de alta performance para Ender 3.</p>
+                                <div class="price-actions">
+                                    <div class="price-info">
+                                        <span class="old-price-v2">R$ 399,00</span>
+                                        <span class="current-price-v2">R$ 319,20</span>
+                                        <span class="installment">em até 8x</span>
+                                    </div>
+                                    <button class="add-to-cart-btn-v2" onclick="addToCart('SKR Mini E3 V3.0', 319.20)">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card-v2 reveal-item">
+                            <div class="badge-tag destaque">Premium</div>
+                            <img src="https://www.smooth3d.com.br/files/2023/02/IMG_1008-1.JPG" alt="Filamento PLA Madeira">
+                            <div class="card-content-v2">
+                                <span class="category-chip">Filamentos</span>
+                                <h3>Filamento PLA Madeira (Wood) - 500g</h3>
+                                <p>Material com acabamento e textura de madeira real.</p>
+                                <div class="price-actions">
+                                    <div class="price-info">
+                                        <span class="current-price-v2">R$ 139,90</span>
+                                        <span class="installment">em até 4x</span>
+                                    </div>
+                                    <button class="add-to-cart-btn-v2" onclick="addToCart('PLA Madeira 500g', 139.90)">
+                                        <i class="fas fa-cart-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>Sobre a TechMaker</h3>
+                <p>Líder em tecnologia de fabricação digital, oferecendo o melhor em Impressão 3D, Laser e Eletrônica para sua criatividade.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Atendimento</h3>
+                <ul>
+                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">Política de Troca</a></li>
+                    <li><a href="#">Minha Conta</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Produtos</h3>
+                <ul>
+                    <li><a href="#">Impressoras</a></li>
+                    <li><a href="#">Filamentos</a></li>
+                    <li><a href="#">Kits Eletrônicos</a></li>
+                    <li><a href="#">Peças e Componentes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                &copy; 2025 TechMaker. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- SCROLL REVEAL ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal-item').forEach(item => {
+                observer.observe(item);
+            });
+        });
+        
+        // --- FUNÇÕES DO CARRINHO LATERAL ---
+        function openCart() {
+            document.getElementById('offCanvasCart').classList.add('is-open');
+            document.getElementById('cartOverlay').classList.add('is-open');
+        }
+
+        function closeCart() {
+            document.getElementById('offCanvasCart').classList.remove('is-open');
+            document.getElementById('cartOverlay').classList.remove('is-open');
+        }
+
+        function addToCart(productName, price) {
+            alert(`"${productName}" (R$ ${price.toFixed(2).replace('.', ',')}) adicionado ao carrinho!`);
+        }
+        
+    </script>
+</body>
+</html>
